@@ -116,11 +116,10 @@ int main(int argc, char** argv) { // #(cpu [Total Run time{ms}] [Period{ms}] [Nu
 			else {
 				temp_period_time = times[j][i - 1]; //first period
 			}
-		}
         	temp_period_time = temp_period_time / period; //Speed = iterations/period -> compensates for the lenght of the period
 		fprintf(csvData, "%ld,", temp_period_time);
 		current_time[j] = times[j][i - 1];
-	}
+	}}
 	
 	fprintf(csvData, "\n");
 	
