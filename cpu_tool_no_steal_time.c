@@ -43,6 +43,7 @@ void* worker(void *thread_number){
 
 	while (control){
 		++count[index];
+		usleep(10);
 	}
   return NULL;
 }
