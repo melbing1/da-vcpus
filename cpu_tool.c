@@ -95,8 +95,7 @@ int main(int argc, char** argv) {
 	proc_stat = fopen("/proc/stat", "r");
 
 	while(time_index < stop){
-		// Always begin by sleeping 'period' ms
-		nanosleep(&t, NULL);
+		nanosleep(&t, NULL); // Always begin by sleeping 'period' ms
 		for (int i = 0; i < thread_count; ++i){
 			times[i][time_index] = count[i]; //Collect cycle counts from each of the CPU arrays
 		}
@@ -125,7 +124,7 @@ int main(int argc, char** argv) {
 		// Calculate steal time percentage
 		current_period_steal_time = strtoull(steal_time, NULL, 10);
 		if (store_init_val){
-			 times[thread_count][time_index] = -1; // Set to -1 becuase we dont have data in the first loop to compare against.
+			 times[thread_count][time_index] = -1; // Set to -1 because we don't have data in the first loop to compare against.
 			 store_init_val = 0;
 			 last_period_steal_time = current_period_steal_time;
 		} else {
@@ -155,13 +154,13 @@ int main(int argc, char** argv) {
 		perror("Could not open file");
 		exit(-1);
 	}
-	// Creates a csv with the period number and then a list of the iterations of each thread during that period
+	// Creates a CSV with the period number and then a list of the iterations of each thread during that period
 	uint64_t time_marker = 0;
 	uint64_t current_time[thread_count]; // Elapsed time at a given period in each thread
 	uint64_t temp_period_time = 0; // Temporary value for a given period
 	uint64_t temp_steal_time = 0;
 
-	for (int i = 0; i < thread_count + 1; ++i) // Standard array intialiation does not work with uint64_t type arrays
+	for (int i = 0; i < thread_count + 1; ++i) // Standard array initialization does not work with uint64_t type arrays
 			current_time[i] = 0;
 
     /* Divide the iterations by the period -> print speed not iteration count */
@@ -197,7 +196,7 @@ int main(int argc, char** argv) {
 				fprintf(csvData, "%ld", temp_steal_time);
 			}
 			else { //print CPU period
-        temp_period_time = temp_period_time / period; // Speed = iterations/period -> compensates for the lenght of the period
+        temp_period_time = temp_period_time / period; // Speed = iterations/period -> compensates for the length of the period
 				fprintf(csvData, "%ld,", temp_period_time);
 				current_time[j] = times[j][i - 1];
 			}
