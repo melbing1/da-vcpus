@@ -1,6 +1,8 @@
 # The Linux Load Balance: Wasted vCPUs in Clouds
 
-cpu_tool.c provides that source code for building the CPU tool referenced in the paper.
+This is the repository for resources from "The Linux Load Balance: Wasted Cores in Clouds" paper
+
+The cpu_tool.c file provides that source code for building the CPU tool referenced in the paper.
 
 This repository contains an updated patch and profiler source code for Linux kernel version 5.4.47 which is a updated from the work by the authors of ["The Linux Scheduler: a Decade of Wasted Cores"](https://github.com/jplozi/wastedcores)
 
