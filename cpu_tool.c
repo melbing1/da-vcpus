@@ -27,7 +27,7 @@ int * persistent_indicies;
 void* worker(void *thread_number){
 	int index = *(int *) thread_number;
 
-	/* This program can be configured to run with or to run without the vCPUs pinned to physical cores (the pinning is sequential) */
+	/* This program can be configured to run with or without the vCPUs pinned to physical cores (the pinning is sequential) */
 	/* To disable core pinning comment out the code between the comments below. */
 
 	//Begin CPU pinning code (Optional)
